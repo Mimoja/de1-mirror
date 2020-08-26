@@ -2473,18 +2473,10 @@ proc de1_ble_handler { event data } {
 							} elseif {$cuuid eq $::de1(cuuid_acaia_ips_age)} {
 								# acaia scale
 								if {$::acaia_next_command == 0} {
-									# 0xEF
-									set HEADER1 239
-									# 0xDD
-									set HEADER2 221
-									binary scan $value cucucu h1 h2 msgtype
-									if { [info exists h1] && [info exists h2] } {
-										if { ($h1 == $HEADER1) && ($h2 == $HEADER2) && [info exists msgtype]} {
-											set ::acaia_next_command $msgtype
-										}
-									}
+									binary scan $value scu header msgtype
+									set ::acaia_next_command $msgtype
 								} else {
-									binary scan $value cucuicucu len event_type weight unit neg
+									binary scan $value cucusucucucucu len event_type weight t0 t1 unit neg
 									if {$::acaia_next_command == 12 && $event_type == 5 } {
 										# we have valid data, extract it
 										set calulated_weight [expr {$weight / pow(10.0, $unit)}]
