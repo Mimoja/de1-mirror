@@ -1,7 +1,7 @@
-From a050841e6d2c521e411592d39d0b911dce3e2906 Mon Sep 17 00:00:00 2001
+From 543de272be5c557e86c15a82dfa809c6d2d1d1a3 Mon Sep 17 00:00:00 2001
 From: Mimoja <git@mimoja.de>
 Date: Wed, 26 Aug 2020 15:40:05 +0200
-Subject: [PATCH 3/5] bluetooth: Add support for the second version acaia scale
+Subject: [PATCH 3/4] bluetooth: Add support for the second version acaia scale
  protocol
 
 The acaia scales (in protocol version 2) provide a BLE Internet Protocol Support
