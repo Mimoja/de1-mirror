@@ -18,6 +18,9 @@ if git diff origin/main HEAD
 then
   exit 0
 fi
+
+git lfs uninstall
+
 echo "--- Creating Manifest ---"
 
 TIMESTAMP=`cat timestamp.txt`
