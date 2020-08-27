@@ -1,0 +1,18 @@
+name: Update decent upstream and rebase workbranch
+
+on:
+  schedule:
+    - cron: '*/30 * * * *'
+
+jobs:
+  rebase:
+    name: Checkout and rebase onto upstream
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Rebase
+        run: .github/workflows/rebase.sh

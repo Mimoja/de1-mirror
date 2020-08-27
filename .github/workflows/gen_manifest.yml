@@ -1,0 +1,18 @@
+name: Generating Manifest into commit
+
+on:
+  push:
+    branches:
+      - main
+jobs:
+  gen_manifest:
+    name: Manifest Gen
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Rebase
+        run: .github/workflows/manifest.sh
