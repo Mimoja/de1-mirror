@@ -30,6 +30,11 @@ find * -type f -printf "\"%p\"\n"  | grep -v "\"patches" |  xargs -n1 -I {} bash
 
 gzip -c manifest.tdb > manifest.gz
 
+if git diff HEAD manifest.tdb
+then
+exit 0
+fi
+
 git add manifest* timestamp.txt
 git config --local user.email "mirror@decentespresso.com"
 git config --local user.name "Decent Espresso"
