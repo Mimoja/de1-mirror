@@ -14,9 +14,17 @@ echo "--- Rebasing---"
 git rebase FETCH_HEAD
 git status
 
+if git diff origin/main HEAD
+then
+  exit 0
+fi
 echo "--- Creating Manifest ---"
 
 TIMESTAMP=`cat timestamp.txt`
+
+TIMESTAMP=$(($TIMESTAMP+1))
+
+echo $TIMESTAMP > timestamp.txt
 
 export TIMESTAMP
 
