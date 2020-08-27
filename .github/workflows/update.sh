@@ -2,6 +2,8 @@
 set -e
 shopt -s extglob
 
+git checkout -b upstream
+
 echo "Fetch manifest..."
 wget --no-verbose -O manifest.txt https://decentespresso.com/download/sync/de1plus/manifest.txt
 
@@ -35,6 +37,7 @@ else
   echo "Pushing v$TS to git..."
   git config --local user.email "mirror@decentespresso.com"
   git config --local user.name "Decent Espresso"
+  git checkout -b upstream
   git add --all
   git commit --all --message="$MESSAGE"
   git tag --annotate v$TS --message="$MESSAGE"

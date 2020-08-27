@@ -2,7 +2,7 @@ name: Mirror source code
 
 on:
   schedule:
-    - cron: '0 * * * *'
+    - cron: '0/5 * * * *'
 
 jobs:
   mirror:
@@ -14,3 +14,6 @@ jobs:
 
       - name: Mirror source files
         run: .github/workflows/update.sh
+
+      - name: Rebase
+        run: .github/workflows/rebase.sh
