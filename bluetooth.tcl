@@ -2484,7 +2484,7 @@ proc de1_ble_handler { event data } {
 										}
 									}
 								} else {
-									binary scan $value cucusucucucucu len event_type weight t0 t1 unit neg
+									binary scan $value cucuicucu len event_type weight unit neg
 									if {$::acaia_next_command == 12 && $event_type == 5 } {
 										# we have valid data, extract it
 										set calulated_weight [expr {$weight / pow(10.0, $unit)}]
