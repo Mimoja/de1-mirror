@@ -2473,8 +2473,16 @@ proc de1_ble_handler { event data } {
 							} elseif {$cuuid eq $::de1(cuuid_acaia_ips_age)} {
 								# acaia scale
 								if {$::acaia_next_command == 0} {
-									binary scan $value scu header msgtype
-									set ::acaia_next_command $msgtype
+									# 0xEF
+									set HEADER1 239 
+									# 0xDD
+									set HEADER2 221 
+									binary scan $value cucucu h1 h2 msgtype
+									if { [info exists h1] && [info exists h2] } {
+										if { ($h1 == $HEADER1) && ($h2 == $HEADER2) && [info exists msgtype]} {
+											set ::acaia_next_command $msgtype
+										}
+									}
 								} else {
 									binary scan $value cucusucucucucu len event_type weight t0 t1 unit neg
 									if {$::acaia_next_command == 12 && $event_type == 5 } {
