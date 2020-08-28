@@ -3,7 +3,6 @@
 This Repository is a downstream fork of the decent espresso software. It extends Johns
 amazing work by:
 
-- DSx Skin by default
 - Support for Acaia scales
 
 To enable the usage of this repository copy the updater.tcl from this repo to you /sdcare/de1plus folder
