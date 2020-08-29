@@ -1911,7 +1911,12 @@ proc de1_ble_handler { event data } {
 							ble_connect_to_scale
 						}
 					}
-				} elseif {[string first "ACAIA" $name] != -1} {
+				} elseif {[string first "ACAIA" $name] != -1 \
+					|| [string first "CINCO" $name]    != -1 \
+					|| [string first "LUNAR" $name]    != -1 \
+					|| [string first "PEARLS" $name]   != -1 \
+					|| [string first "PROCH" $name]    != -1 \
+					|| [string first "PYXIS" $name]    != -1 } {
 					append_to_scale_bluetooth_list $address "acaiascale"
 
 					if {$address == $::settings(scale_bluetooth_address)} {
