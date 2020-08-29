@@ -4,9 +4,7 @@ shopt -s extglob
 
 TIMESTAMP=`cat timestamp.txt`
 
-TIMESTAMP=$(($TIMESTAMP+1))
-
-echo $TIMESTAMP > timestamp.txt
+TIMESTAMP=$((TIMESTAMP+1))
 
 export TIMESTAMP
 
@@ -20,7 +18,6 @@ fi
 function printFile {
 	FILESIZE=$(wc -c "$1" | awk '{print $1}')
     CHECKSUM=$(sha256sum "$1" | awk '{print $1}')
-
 	echo "\"$1\" $FILESIZE $TIMESTAMP $CHECKSUM"
 }
 
@@ -30,7 +27,7 @@ find * -type f -printf "\"%p\"\n"  | grep -v "\"patches" |  xargs -n1 -I {} bash
 
 gzip -c manifest.tdb > manifest.gz
 
-git add manifest* timestamp.txt
+git add manifest*
 git config --local user.email "mirror@decentespresso.com"
 git config --local user.name "Decent Espresso"
 git commit -m"Auto update Manifest following push"

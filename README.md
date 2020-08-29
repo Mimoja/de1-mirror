@@ -1,4 +1,4 @@
-# DE1 Downstream Git fork
+# DE1 Mirror
 
 This Repository is a downstream fork of the decent espresso software. It extends Johns
 amazing work by:

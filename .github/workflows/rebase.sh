@@ -50,7 +50,10 @@ find * -type f -printf "\"%p\"\n"  | grep -v "\"patches" |  xargs -n1 -I {} bash
 
 gzip -c manifest.tdb > manifest.gz
 
-git add manifest.tdb manifest.gz
+git format-patch FETCH_HEAD..HEAD -o patches
+rm patches/0001*
+
+git add manifest.tdb manifest.gz patches
 git commit -m "Update Manifest for upstream $TIMESTAMP"
 
 git push -f origin main
